@@ -1,0 +1,7 @@
+version: '3'
+services:
+  webapp:
+    build: docker/app
+    container_name: school_app
+    ports:
+      - 8080:8080
