@@ -1,0 +1,18 @@
+[mysqld]
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+
+innodb_file_format = Barracuda
+innodb_file_format_max = Barracuda
+character-set-server = utf8mb4
+innodb_file_per_table = 1
+innodb_large_prefix = ON
+# スレーブに通知するバイナリログ(実際はナンバリングされる)
+log-bin=mysql-bin
+
+# レプリケーションを行う、サーバーのユニークID
+server-id=1001
+
+#ignore_db_dirs = /var/lib/mysql/data
+
+[client]
+default-character-set = utf8mb4

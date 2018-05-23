@@ -5,3 +5,17 @@ services:
     container_name: school_app
     ports:
       - 8080:8080
+    networks:
+      - school_network
+  db:
+    build: docker/mysql
+    container_name: school_db
+    ports:
+      - 3307:3306
+    networks:
+      - school_network
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_ROOT_PASSWORD: ""
+networks:
+  school_network:
