@@ -8,3 +8,6 @@
 - cp target/school-0.0.1-SNAPSHOT.jar docker/app
 - docker-compose up -d --build
 - 動かなかったら自力で頑張る
+
+# Tips
+- `mysql -uroot -P 3307 -h docker.host`
