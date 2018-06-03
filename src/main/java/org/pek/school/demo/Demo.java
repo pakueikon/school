@@ -1,4 +1,4 @@
-package org.pek.school.entity;
+package org.pek.school.demo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class DemoEntity {
+public class Demo {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;

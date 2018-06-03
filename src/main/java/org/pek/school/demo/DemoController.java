@@ -1,7 +1,5 @@
-package org.pek.school.controller;
+package org.pek.school.demo;
 
-import org.pek.school.entity.DemoEntity;
-import org.pek.school.repository.DemoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class DemoController {
 
     @Autowired
-    private DemoRepository demoRepository;
+    private DemoService demoService;
 
     @RequestMapping("/")
     public String demo() {
@@ -27,13 +25,20 @@ public class DemoController {
 
     @GetMapping("/add")
     public @ResponseBody
-    DemoEntity addNewDemo (@RequestParam String content) {
+    Demo addNewDemo (@RequestParam String content) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-        DemoEntity n = new DemoEntity();
-        n.setContent(content);
-        return demoRepository.save(n);
+        Demo demo = new Demo();
+        demo.setContent(content);
+
+        return demoService.save(demo);
+    }
+
+    @GetMapping("/all")
+    public @ResponseBody
+    Iterable<Demo> findAll () {
+        return demoService.findAll();
     }
 
 }
