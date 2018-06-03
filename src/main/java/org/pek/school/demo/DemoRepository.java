@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Created by e.paku on 2018/05/26.
+ *  SEE: https://spring.io/guides/gs/accessing-data-jpa/
  */
 public interface DemoRepository extends CrudRepository<Demo, Long> {
     List<Demo> findById(int id);
