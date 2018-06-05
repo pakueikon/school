@@ -1,11 +1,9 @@
 package org.pek.school.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 /**
  * Created by e.paku on 2018/05/25.
@@ -20,7 +18,7 @@ public class DemoController {
 
     @RequestMapping("/")
     public String demo() {
-        return "Hello spring world";
+        return "Hello spring demo world";
     }
 
     @GetMapping("/add")
@@ -41,4 +39,9 @@ public class DemoController {
         return demoService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public @ResponseBody
+    Optional<Demo> findById (@PathVariable("id") int id) {
+        return demoService.findById(id);
+    }
 }
